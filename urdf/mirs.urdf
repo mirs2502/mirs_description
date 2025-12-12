@@ -110,10 +110,10 @@
   </joint>
 
   <!--==============================================================
-      laser_frame：LIDAR のフレーム
+      laser：LIDAR のフレーム
       小さな円柱で可視化
   ==============================================================-->
-  <link name="laser_frame">
+  <link name="laser">
     <visual>
       <geometry>
         <cylinder length="0.04" radius="0.035"/>
@@ -122,21 +122,19 @@
     </visual>
   </link>
 
-  <!-- LIDAR の固定ジョイント：base_footprint → laser_frame -->
+  <!-- LIDAR の固定ジョイント：base_footprint → laser -->
   <joint name="lidar_joint" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="laser_frame"/>
-    <origin xyz="0 0 0.3" rpy="3.14159 0 0"/>
-    <!-- 高さ20cmに設置。
-         rpy=3.14159 は x軸まわり180度回転（上下反転）。
-         実機LIDARの取り付け向きを表現している可能性がある。 -->
+    <parent link="base_link"/>
+    <child link="laser"/>
+    <origin xyz="0 0 0.3" rpy="0 0 0"/>
+    <!-- 高さ30cmに設置。ロボット中心。 -->
   </joint>
 
   <!--==============================================================
-      camera_link：カメラ本体
+      camera：カメラ本体
       小型箱型で表現
   ==============================================================-->
-  <link name="camera_link">
+  <link name="camera">
     <visual>
       <geometry>
         <box size="0.02 0.05 0.02"/> <!-- 小さな直方体のカメラ -->
@@ -145,12 +143,12 @@
     </visual>
   </link>
 
-  <!-- カメラ固定ジョイント：base_footprint → camera_link -->
+  <!-- カメラ固定ジョイント：base_footprint → camera -->
   <joint name="camera_joint" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="camera_link"/>
-    <origin xyz="0.20 0 0.30" rpy="0 0 0"/>
-    <!-- 前方向に20cm、上方向に30cm。
+    <parent link="base_link"/>
+    <child link="camera"/>
+    <origin xyz="0.15 0 0.3" rpy="-1.5707 0 -1.5707"/>
+    <!-- 前方向に15cm、上方向に30cm。
          ロボット前面の高い位置に設置されている。 -->
   </joint>
 
