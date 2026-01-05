@@ -126,8 +126,8 @@
   <joint name="lidar_joint" type="fixed">
     <parent link="base_link"/>
     <child link="laser"/>
-    <origin xyz="0 0 0.3" rpy="0 0 0"/>
-    <!-- 高さ30cmに設置。ロボット中心。 -->
+    <origin xyz="0 0 0.105" rpy="3.14159 0 0"/>
+    <!-- 高さ20.5cmに設置(base_linkから+10.5cm)。上下逆さま(Roll=180度)。 -->
   </joint>
 
   <!--==============================================================
@@ -147,9 +147,9 @@
   <joint name="camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="camera"/>
-    <origin xyz="0.15 0 0.3" rpy="-1.5707 0 -1.5707"/>
-    <!-- 前方向に15cm、上方向に30cm。
-         ロボット前面の高い位置に設置されている。 -->
+    <origin xyz="0.27 0 0.15" rpy="0 0 0"/>
+    <!-- 前方向に27cm、上方向に25cm(base_linkから+15cm)。
+         ロボット進行方向前向き。 -->
   </joint>
 
 </robot>
