@@ -35,7 +35,7 @@
   <joint name="base_joint" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link"/>
-    <origin xyz="0 0 0.10" rpy="0 0 0"/>
+    <origin xyz="0 0 0.0391" rpy="0 0 0"/>
   </joint>
 
   <!--==============================================================
@@ -71,7 +71,7 @@
   <link name="left_wheel">
     <visual>
       <geometry>
-        <cylinder length="0.05" radius="0.10"/>
+        <cylinder length="0.05" radius="0.0391"/>
       </geometry>
       <material name="black"/>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
@@ -82,7 +82,7 @@
   <joint name="left_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin xyz="0 0.225 0" rpy="0 0 0"/>
+    <origin xyz="0 0.212 0" rpy="0 0 0"/>
     <!-- base_link の中心から左側（y+方向）に 0.225m 位置。 -->
     <axis xyz="0 1 0"/> <!-- Y軸回りに回転（ホイール回転軸） -->
   </joint>
@@ -93,7 +93,7 @@
   <link name="right_wheel">
     <visual>
       <geometry>
-        <cylinder length="0.05" radius="0.10"/>
+        <cylinder length="0.05" radius="0.0391"/>
       </geometry>
       <material name="black"/>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
@@ -104,7 +104,7 @@
   <joint name="right_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel"/>
-    <origin xyz="0 -0.225 0" rpy="0 0 0"/>
+    <origin xyz="0 -0.212 0" rpy="0 0 0"/>
     <!-- base_link から右側（y-方向）に 0.225m -->
     <axis xyz="0 1 0"/> <!-- こちらも Y軸回転 -->
   </joint>
@@ -147,9 +147,9 @@
   <joint name="camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="camera"/>
-    <origin xyz="0.27 0 0.15" rpy="0 0 0"/>
-    <!-- 前方向に27cm、上方向に25cm(base_linkから+15cm)。
-         ロボット進行方向前向き。 -->
+    <origin xyz="0.15 0 0.3" rpy="-1.5707 0 -1.5707"/>
+    <!-- 前方向に15cm、上方向に30cm。
+         ロボット前面の高い位置に設置されている。 -->
   </joint>
 
 </robot>
